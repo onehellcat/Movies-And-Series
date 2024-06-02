@@ -10,12 +10,21 @@ router.get("/", function (req, res) {
     function (err, rows) {
       if (err) {
         req.flash("error", err);
-        res.render("list", { page_title: "Series", data: "" });
+        res.render("series", { page_title: "Series", data: "" });
       } else {
-        res.render("list", { page_title: "Series", data: rows });
+        res.render("series", { page_title: "Series", data: rows });
       }
     }
   );
 });
+router.post("/", (req, res) => {
+  res.redirect("/series");
 
+  console.log(
+    `Added to series: ${req.body.name} ${req.body.genre} ${req.body.imdb}`
+  );
+  return connection.query(
+    `INSERT INTO series (name, genre, IMDb) VALUES ('${req.body.name}','${req.body.genre}','${req.body.imdb}')`
+  );
+});
 module.exports = router;

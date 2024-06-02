@@ -17,24 +17,64 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
+    <header class="topnav" id="topnav">
       <a href="/">Home</a>
       <a href="/movies" class="active">Movies</a>
-      <a href="/series" >Series</a>
-      <a href="/movies/upload" >Upload a Movie</a>
-      <a href="/series/upload">Upload a Series</a>
-      </a>
-    </div>
-    
+      <a href="/series">Series</a>
+      <!-- <a href="/movies/upload" >Upload a Movie</a>
+      <a href="/series/upload">Upload a Series</a> -->
+    </header>
     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col" class="id-col noselect">ID</th>
-          <th scope="col" class="name-col noselect">Name</th>
-          <th scope="col" class="genre-col noselect">Genre</th>
-          <th width="200px" class="imdb-col noselect">IMDb Rating</th>
-        </tr>
-      </thead>
+      <tr>
+        <th scope="col" class="id-col noselect">ID</th>
+        <th scope="col" class="name-col noselect">Name</th>
+        <th scope="col" class="genre-col noselect">Genre</th>
+        <th width="200px" class="imdb-col noselect">IMDb Rating</th>
+        <th width="200px" class="imdb-col noselect">&nbsp;</th>
+      </tr>
+      <tbody>
+        <form method="POST">
+          <tr>
+            <td></td>
+            <td>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter the name"
+                required />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="genre"
+                id="genre"
+                placeholder="Enter the genre('s)"
+                required />
+            </td>
+            <td>
+              <input
+                type="number"
+                name="imdb"
+                id="imdb"
+                class="imdb-select"
+                placeholder="Enter the IMDb rating"
+                value="0"
+                step="0.1"
+                min="1"
+                max="10"
+                required />
+            </td>
+            <td>
+              <button type="submit" id="submitBtn">Add</button>
+            </td>
+          </tr>
+
+          <!-- <th scope="row">
+            <input type="text" name="" id="" disabled="true" />
+          </th> -->
+        </form>
+      </tbody>
       <tbody>
         <% if(data.length){ for(let i = 0; i< data.length; i++) {%>
         <tr>
@@ -43,30 +83,36 @@
           <td class="name-table"><%= data[i].name%></td>
           <td class="genre-table"><%= data[i].genre%></td>
           <td class="imdb-table"><%= data[i].IMDb%></td>
+          <td class="imdb-table">&nbsp;</td>
         </tr>
         <% } }else{ %>
         <tr>
-          <td colspan="3">No user</td>
+          <td colspan="3">None</td>
         </tr>
         <% } %>
       </tbody>
     </table>
 
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<script>
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+      let mybutton = document.getElementById("myBtn");
+      window.onscroll = function () {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
   </body>
 </html>

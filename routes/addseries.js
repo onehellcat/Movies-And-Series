@@ -7,11 +7,10 @@ router.use(express.json());
 
 /* GET home page. */
 router.get("/", function (req, res) {
-  res.render("upload");
+  res.render("uploadseries");
 });
 router.post("/", (req, res) => {
-  res.redirect("../");
-  //res.send(`${req.body.name} ${req.body.genre} ${req.body.imdb}`);
+  res.redirect("/series");
   console.log(
     `Added to series: ${req.body.name} ${req.body.genre} ${req.body.imdb}`
   );

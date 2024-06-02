@@ -18,4 +18,15 @@ router.get("/", function (req, res) {
   );
 });
 
+router.post("/", (req, res) => {
+  res.redirect("/movies");
+  //res.send(`${req.body.name} ${req.body.genre} ${req.body.imdb}`);
+  console.log(
+    `Added to movies: ${req.body.name} ${req.body.genre} ${req.body.imdb}`
+  );
+  return connection.query(
+    `INSERT IGNORE INTO movies (name, genre, IMDb) VALUES ('${req.body.name}','${req.body.genre}','${req.body.imdb}')`
+  );
+});
+
 module.exports = router;

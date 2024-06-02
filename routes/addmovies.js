@@ -7,17 +7,17 @@ router.use(express.json());
 
 /* GET home page. */
 router.get("/", function (req, res) {
-  res.render("uploadmovie");
+  res.render("uploadmovies");
 });
 
 router.post("/", (req, res) => {
-  res.redirect("../");
+  res.redirect("/movies");
   //res.send(`${req.body.name} ${req.body.genre} ${req.body.imdb}`);
   console.log(
     `Added to movies: ${req.body.name} ${req.body.genre} ${req.body.imdb}`
   );
   return connection.query(
-    `INSERT INTO movies (name, genre, IMDb) VALUES ('${req.body.name}','${req.body.genre}','${req.body.imdb}')`
+    `INSERT IGNORE INTO movies (name, genre, IMDb) VALUES ('${req.body.name}','${req.body.genre}','${req.body.imdb}')`
   );
 });
 

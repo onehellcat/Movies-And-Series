@@ -28,19 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//--------------------------------------------------
-//  For custom error codes
-//
-// var methodOverride = require("method-override");
-// app.use(bodyParser());
-// app.use(methodOverride());
-// app.use(function (err, req, res, next) {
-//   if (res.status === 503) {
-//     res.sendFile("yourfilepath/filename.html");
-//   }
-// });
-//--------------------------------------------------
-
 app.use(
   session({
     secret: "4f978f1a-be5f-4243-8f03-b28b6ac8a8f2",

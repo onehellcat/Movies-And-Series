@@ -1,4 +1,4 @@
-Collection of movies and series i've seen.<br>
+Collection of movies and tv shows i've seen.<br>
 Using MySql, NodeJS and ExpressJS. <br>
 The Project requests and displays the contents in a list. <br>
 Also possible to 'upload' content<br>
